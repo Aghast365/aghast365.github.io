@@ -20,7 +20,7 @@ nav {
 	padding: 0;
 	width: 1.4in;
 	border-radius: .05in;
-	background-color: #E0DDCC;//#eeeffe;
+	background-color: #E0DDCC; #eeeffe;
 }
 
 #prof {
@@ -69,7 +69,7 @@ nav {
 	left: 0;
 	width: 100%;
 	height: .125em;
-	background-color: #5C5EC4; //535496; //005eee;
+	background-color: #5C5EC4; #535496; #005eee;
 }
 
 #links a::after {
@@ -142,4 +142,25 @@ nav {
 	box-sizing: border-box;
 	border-radius: .05in;
 	background-color: #E0DDCC;
+}
+
+code.inline {
+	background-color: #2F3063; #23234A;
+	border-radius: .05in;
+	box-shadow: black 1px 1px 3px inset;
+	padding: .025in .05in;
+	color: #B8B294; #D19F41;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+code.block {
+	background-color: #2F3063; #23234A;
+	border-radius: .05in;
+	box-shadow: black 1px 1px 3px inset;
+	padding: .05in;
+	color: #B8B294; #D19F41;
+	display:block;
+	white-space: pre;
+	
 }

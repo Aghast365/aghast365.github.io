@@ -3,34 +3,6 @@
 	<head>
 		<title>Notes</title>
 		<link rel='stylesheet' href='styles.css' />
-		<script defer>
-			const getPDFList = async () => {
-				const response = await fetch('https://api.github.com/repos/Aghast365/aghast365.github.io/contents/notes', {
-					method: 'GET',
-					headers: {
-						'accept': 'application/vnd.github+json',
-						'X-GitHub-Api-Version': '2022-11-28'
-					}
-				});
-				const list = await response.json();
-				return list;
-			}
-			
-			let PDFListElement = document.getElementById('pdfs');
-			const refreshList = (e) => {
-				PDFListElement.textContent = '';
-				getPDFList().then((list) => {
-					for (let i = 0; i < list.length; i++) {
-						let PDFListItem = document.createElement('li');
-						let PDFLink = document.createElement('a');
-						PDFLink.href = `https://aghast365.github.io/notes/{list[i].name}`;
-						PDFLink.textContent = list[i].name;
-						PDFListItem.appendChild(PDFLink);
-						PDFListElement.appendChild(PDFListItem);
-					}
-				});
-			}
-		</script>
 	</head>
 	<body>
 		<nav>
@@ -55,7 +27,37 @@
 				<hr />
 				<ul id='pdfs'>
 				</ul>
+				<button onclick='refreshList()'>Refresh</button>
 			</section>
+			<script>
+				const getPDFList = async () => {
+					const response = await fetch('https://api.github.com/repos/Aghast365/aghast365.github.io/contents/notes', {
+						method: 'GET',
+						headers: {
+							'accept': 'application/vnd.github+json',
+							'X-GitHub-Api-Version': '2022-11-28'
+						}
+					});
+					const list = await response.json();
+					return list;
+				}
+				
+				let PDFListElement = document.getElementById('pdfs');
+				const refreshList = (e) => {
+					PDFListElement.textContent = '';
+					getPDFList().then((list) => {
+						for (let i = 0; i < list.length; i++) {
+							let PDFListItem = document.createElement('li');
+							let PDFLink = document.createElement('a');
+							PDFLink.href = `https://aghast365.github.io/notes/{list[i].name}`;
+							PDFLink.textContent = list[i].name;
+							PDFListItem.appendChild(PDFLink);
+							PDFListElement.appendChild(PDFListItem);
+						}
+					});
+				}
+				refreshList(null);
+			</script>
 		</div>
 	</body>
 </html>

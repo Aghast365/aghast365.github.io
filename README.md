@@ -1,3 +1,5 @@
-# JS Testing Site
+# Portfolio Site
 
-Working on getting a nicer-looking site up and running, for now just some loose ends and notes taken in markdown
+Bare-bones portfolio site.
+
+Also a place to keep some pdf notes and small javascript experiments.
